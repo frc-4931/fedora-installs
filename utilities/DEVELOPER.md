@@ -42,7 +42,7 @@ When we've installed a new version of the WPILib plugins, we need to configure i
 
 and press "Finish". This creates installs the WPILib libraries, and creates a new project named "foo" that uses these libraries. 
 
-## Configure Strongback
+### Configure Strongback
 
 Also, because Strongback is newly installed, we need to configure it by opening a terminal and running the following commands:
 
