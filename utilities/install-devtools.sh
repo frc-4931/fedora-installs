@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if [[ ! -d "~/fedora-installs" ]]; then
+    cd ~
+    git clone https://github.com/frc-4931/fedora-installs.git
+    echo "PATH=\${HOME}/fedora-installs/utilities/:\${PATH}" >> /home/$username/.bashrc
+fi
+
 #
 # Install WPILib (or Beta)
 #
@@ -13,9 +19,9 @@ install-strongback.sh 1.1.7
 
 #
 # Configure Git and GitHub
-config-github.sh
+#config-github.sh
 
 #
 # Set up the Eclipse workspace
 #
-add-github-repo.sh 2016-Robot
+#add-github-repo.sh 2016-Robot

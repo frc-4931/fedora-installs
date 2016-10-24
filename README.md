@@ -42,4 +42,19 @@ The first command downloads the latest version of the utilites in this repositor
 * [Slack](http://slack.com)
 * FRC 4931 utilities for each user
 
-The system updates do take a while (perhaps an hour or so depending upon the Internet connection speed), but you can leave it run or you can watch the progress as it works. When it completes, log out of the administrative account, give the machine to the team member, and have them follow [these instructions](http://github.com/frc-4931/fedora-installs/utilities/README.md).
+The system updates do take a while (perhaps an hour or so depending upon the Internet connection speed), but you can leave it run or you can watch the progress as it works. When it completes, log out of the administrative account, log into each of the developer accounts and run the following script:
+
+    $ install-devtools.sh
+
+and arrange the favorites to have:
+
+* Chrome
+* Slack
+* Eclipse
+* Terminal
+* Files
+* Text Editor
+* System Monitor
+* Help
+
+Log out and the machine should be ready to give to the team member. When then get the machine, have them follow [these instructions](http://github.com/frc-4931/fedora-installs/utilities/README.md).

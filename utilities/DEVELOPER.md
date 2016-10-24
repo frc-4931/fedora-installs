@@ -4,11 +4,11 @@ Once the FRC4931 software [has been installed](http://github.com/frc-4931/fedora
 
 If you have not already, create a [GitHub](http://github.com) account and sign in, then go to https://github.com/frc-4931/2016-Robot and click on the "Fork" button to fork that repository.
 
-## Install development tools
+## Setup development tools
 
 Open a terminal and run the following command:
 
-    $ install-devtools.sh
+    $ config-github.sh
 
 to install some of the development tools and configures Git. If asked, enter your full name, GitHub username, and email address, followed by several questions needed to generate a new public/private SSH key so that GitHub can authenticate you (using the private key on this machine) without you having to enter a password.
 
@@ -23,9 +23,11 @@ Press enter to accept the default, and then the program will prompt for a passph
 
 Enter a short 5+ character password/phrase that unlocks your primary key. You will need to remember this passphrase! The program will prompt you to reenter the passphrase, will then generate the public and private keys, and will then prompot you for your GitHub password so it can upload the public key to your GitHub account.
 
-Finally, the program will then clone the https://github.com/frc-4931/2016-Robot repository.
+Then run the following command:
 
-*Close this terminal when completed.*
+    $ add-github-repo.sh 2016-Robot
+
+to clone the https://github.com/frc-4931/2016-Robot repository.
 
 ### Start Eclipse
 
