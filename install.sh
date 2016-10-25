@@ -55,10 +55,11 @@ echo "Updating the system"
 dnf -y update
 
 #
-# Install Git, Java Development Kit (OpenJDK 8), Eclipse, and Eclipse packages
+# Install Git, Java Development Kit (OpenJDK 8), Eclipse, Eclipse packages, 
+# Inconsolata open source monospace font, Fritzing (electrical CAD), Arduino programming environment
 #
-echo "Installing Git, OpenJDK 8, and Eclipse"
-dnf -y install git java-1.8.0-openjdk-devel eclipse eclipse-jdt eclipse-mpc eclipse-egit eclipse-egit-github levien-inconsolata-fonts
+echo "Installing Git, OpenJDK 8, Eclipse, Inconsolata, Fritzing, Arduino, and other software"
+dnf -y install git java-1.8.0-openjdk-devel eclipse eclipse-jdt eclipse-mpc eclipse-egit eclipse-egit-github levien-inconsolata-fonts fritzing arduino
 
 #
 # Define yum repository for Chrome
