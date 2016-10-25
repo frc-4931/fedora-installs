@@ -8,9 +8,13 @@ if [[ -z "$repoName" ]]; then
     echo "Adding a GitHub repository in ~/dev directory"
     echo ""
     read -p "  Enter name of FRC4931 GitHub repository : " repoName
+    if [[ -z "$repoName" ]]; then
+        echo "Invalid repository name"
+        exit 2
+    fi
 fi
 
-if [[ ! -d "~/dev/${repoName}" ]]; then
+if [[ ! -d "${HOME}/dev/${repoName}" ]]; then
 
     #
     # Read the GitHub username
@@ -31,14 +35,15 @@ if [[ ! -d "~/dev/${repoName}" ]]; then
         git branch --set-upstream-to=upstream/master master
         git pull upstream master
         echo ""
-        echo "Repository added at ~/dev/${repoName}."
+        echo "Repository added at ${HOME}/dev/${repoName}."
         echo ""
-        echo "Next: open Eclipse and switch workspaces to ~/dev/${repoName}, then import existing projects in this directory."
+        echo "Next: open Eclipse and switch workspaces to ${HOME}/dev/${repoName}, then import existing projects in this directory."
         echo ""
     else
         echo ""
         echo "Make sure that you've cloned the \"https://github.com/frc-4931/${repoName}\" repository, and then re-run."
         echo ""
+        exit 1
     fi
     cd $oldDir
 

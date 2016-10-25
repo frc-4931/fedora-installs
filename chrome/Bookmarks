@@ -1,0 +1,48 @@
+{
+   "checksum": "fa8fc3fb7645be5569fa7b4329f3fb19",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13121985355492732",
+            "id": "6",
+            "name": "FRC Team 4931 · GitHub",
+            "type": "url",
+            "url": "https://github.com/frc-4931"
+         }, {
+            "date_added": "13121985448282686",
+            "id": "7",
+            "name": "Using Strongback book",
+            "type": "url",
+            "url": "https://www.gitbook.com/book/strongback/using-strongback/details"
+         }, {
+            "date_added": "13121985472748008",
+            "id": "8",
+            "name": "Strongback on GitHub",
+            "type": "url",
+            "url": "https://github.com/strongback/strongback-java"
+         } ],
+         "date_added": "13121985171097991",
+         "date_modified": "13121985472748008",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13121985171098001",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13121985171098004",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

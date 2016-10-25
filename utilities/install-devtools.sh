@@ -1,10 +1,9 @@
 #!/bin/sh
 
-if [[ ! -d "~/fedora-installs" ]]; then
-    cd ~
-    git clone https://github.com/frc-4931/fedora-installs.git
-    echo "PATH=\${HOME}/fedora-installs/utilities/:\${PATH}" >> /home/$username/.bashrc
-fi
+#
+# Try to install/update the FRC4931 utilities
+#
+./fedora-installs/utilities/update-utilities.sh
 
 #
 # Install WPILib (or Beta)
@@ -15,13 +14,4 @@ eclipse -application org.eclipse.equinox.p2.director -repository http://first.wp
 #
 # Install Strongback
 #
-install-strongback.sh 1.1.7
-
-#
-# Configure Git and GitHub
-#config-github.sh
-
-#
-# Set up the Eclipse workspace
-#
-#add-github-repo.sh 2016-Robot
+./fedora-installs/utilities/install-strongback.sh 1.1.7

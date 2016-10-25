@@ -23,7 +23,13 @@ while [[ ${addUser,,} == "y" ]]; do
                 # Must have been an error setting the password, so try again
                 passwd $username
             done
-			echo "User \"${username}\" has been added to system!"
+            read -p "Add as an administrator? (y/n) " isAdmin
+            if [[ $isAdmin == "y" ]]; then
+                usermod $username -a -G wheel
+                echo "User \"${username}\" has been added to system as an administrator!"
+            else
+                echo "User \"${username}\" has been added to system!"
+            fi
             allUsernames+=($username)
 		else
 			echo "Failed to add a user!"
@@ -36,7 +42,15 @@ while [[ ${addUser,,} == "y" ]]; do
 done
 
 #
-# Install the FRC4931 scripts for each user ...
+# Install the FRC4931 scripts for this user ...
+#
+if ! grep -q "fedora-installs" ${HOME}/.bashrc ; then
+    echo "PATH=\${HOME}/fedora-installs/utilities/:\${PATH}" >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+#
+# Install the FRC4931 scripts for each new user ...
 #
 for username in "${allUsernames[@]}"; do
     echo ""
@@ -59,7 +73,7 @@ dnf -y update
 # Inconsolata open source monospace font, Fritzing (electrical CAD), Arduino programming environment
 #
 echo "Installing Git, OpenJDK 8, Eclipse, Inconsolata, Fritzing, Arduino, and other software"
-dnf -y install git java-1.8.0-openjdk-devel eclipse eclipse-jdt eclipse-mpc eclipse-egit eclipse-egit-github levien-inconsolata-fonts fritzing arduino
+dnf -y install git java-1.8.0-openjdk-devel-debug java-1.8.0-openjdk-src-debug eclipse eclipse-jdt eclipse-mpc eclipse-egit eclipse-egit-github levien-inconsolata-fonts fritzing arduino
 
 #
 # Define yum repository for Chrome

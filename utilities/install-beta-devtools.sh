@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo ""
-if [[ ! -d "~/wpilib" ]]; then
+if [[ ! -d "${HOME}/wpilib" ]]; then
 	echo "Uninstalling WPILib libraries ..."
 	rm -rf ~/wpilib
 
@@ -20,10 +20,10 @@ install-strongback.sh 1.1.8
 # We want to copy the Strongback JARs into the correct WPILib directory ...
 mkdir -p ~/wpilib/user/java/lib/
 cp ~/strongback/java/lib/*.jar ~/wpilib/user/java/lib/
-if [[ ! -d "~/strongback/user/java/lib" ]]; then
+if [[ ! -d "${HOME}/strongback/user/java/lib" ]]; then
 	# Also copy the user libraries that Strongback includes ...
     cp ~/strongback/user/java/lib/*.jar ~/wpilib/user/java/lib/
 fi
-# Don't copy the test-related artifacts just yet. We're hoping that WPILib will add support for test-related JARs.
+# Don't copy the test-related artifacts just yet. We're hoping that WPILib will soon add support for test-related JARs.
 
 add-github-repo.sh 2017-Beta

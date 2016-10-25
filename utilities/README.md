@@ -48,4 +48,4 @@ Try running the `update-utilities.sh` command again to verify everything is inst
 
 ## Developers
 
-To install the development tools, follow [these instructions](http://github.com/frc-4931/fedora-installs/).
+To install the development tools, follow [these instructions](https://github.com/frc-4931/fedora-installs/blob/master/utilities/DEVELOPER.md).

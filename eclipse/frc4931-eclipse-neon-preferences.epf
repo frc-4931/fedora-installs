@@ -2,7 +2,6 @@
 \!/=
 /configuration/org.eclipse.core.net/org.eclipse.core.net.hasMigrated=true
 /configuration/org.eclipse.ui.ide/MAX_RECENT_WORKSPACES=10
-/configuration/org.eclipse.ui.ide/RECENT_WORKSPACES=/home/randall1/dev/2016-Robot\n/home/randall1/workspace
 /configuration/org.eclipse.ui.ide/RECENT_WORKSPACES_PROTOCOL=3
 /configuration/org.eclipse.ui.ide/SHOW_RECENT_WORKSPACES=false
 /configuration/org.eclipse.ui.ide/SHOW_WORKSPACE_SELECTION_DIALOG=true
@@ -10,15 +9,9 @@
 /instance/edu.wpi.first.wpilib.plugins.java/libraryVersion_current=2016.03.01.21.32.25.DEVELOPMENT
 /instance/org.eclipse.core.net/org.eclipse.core.net.hasMigrated=true
 /instance/org.eclipse.core.resources/version=1
-/instance/org.eclipse.egit.core/GitRepositoriesView.GitDirectories=/home/randall1/dev/2016-Robot/.git\:
-/instance/org.eclipse.egit.core/GitRepositoriesView.GitDirectories.relative=.git\:
 /instance/org.eclipse.epp.logging.aeri.ide/resetSendMode=KEEP
 /instance/org.eclipse.epp.logging.aeri.ide/resetSendModeOn=0
 /instance/org.eclipse.epp.logging.aeri.ide/sendMode=NOTIFY
-/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpathVariable.networktables=/home/randall1/wpilib/java/current/lib/NetworkTables.jar
-/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpathVariable.networktables.sources=/home/randall1/wpilib/java/current/lib/NetworkTables-sources.jar
-/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpathVariable.wpilib=/home/randall1/wpilib/java/current/lib/WPILib.jar
-/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpathVariable.wpilib.sources=/home/randall1/wpilib/java/current/lib/WPILib-sources.jar
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8

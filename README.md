@@ -40,13 +40,15 @@ The first command downloads the latest version of the utilites in this repositor
 * [Eclipse](http://eclipse.org)
 * [Chrome](http://google.com/chrome)
 * [Slack](http://slack.com)
+* [Fritzing](http://fritzing.org/)
+* [Arduino](http://arduino.cc)
 * FRC 4931 utilities for each user
 
-The system updates do take a while (perhaps an hour or so depending upon the Internet connection speed), but you can leave it run or you can watch the progress as it works. When it completes, log out of the administrative account, log into each of the developer accounts and run the following script:
+The system updates do take a while (perhaps an hour or so depending upon the Internet connection speed), but you can leave it run or you can watch the progress as it works. When it completes, log out of the administrative account, log into each of the developer accounts and run the following:
 
-    $ install-devtools.sh
+    $ ./fedora-installs/utilities/install-devtools.sh
 
-and arrange the favorites to have:
+When that completes, close the terminal and arrange the favorites to include the following:
 
 * Chrome
 * Slack
@@ -55,6 +57,7 @@ and arrange the favorites to have:
 * Files
 * Text Editor
 * System Monitor
-* Help
+* Fritzing
+* Arduino
 
-Log out and the machine should be ready to give to the team member. When then get the machine, have them follow [these instructions](http://github.com/frc-4931/fedora-installs/utilities/README.md).
+Log out and the machine should be ready to give to the team member. When then get the machine, have them follow [these instructions](https://github.com/frc-4931/fedora-installs/blob/master/utilities/README.md).
