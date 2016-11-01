@@ -44,7 +44,7 @@ The first command downloads the latest version of the utilites in this repositor
 * [Arduino](http://arduino.cc)
 * FRC 4931 utilities for each user
 
-The system updates do take a while (perhaps an hour or so depending upon the Internet connection speed), but you can leave it run or you can watch the progress as it works. When it completes, log out of the administrative account, log into each of the developer accounts and run the following:
+The system updates do take a while (perhaps an hour or so depending upon the Internet connection speed), but you can leave it run or you can watch the progress as it works. When it completes, log out of the administrative account, log into each of the developer accounts and run the following to install WPILib and Strongback:
 
     $ ./fedora-installs/utilities/install-devtools.sh
 
