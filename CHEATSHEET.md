@@ -68,7 +68,7 @@ The file system is a hierarchical tree-like structure, and every location in tha
 An _absolute path_ describes how to get to a location from the very top of the tree, and begins with a `/` character and contains one or more directory or filenames separated by the `/` character. A few examples of absolute paths include:
 
 * `/home/jsmith`,
-* `/opt/google/chrome', and 
+* `/opt/google/chrome`, and 
 * `/home/jsmith/wpilib/java/current/lib/WPILib.jar`.
 
 ### Relative paths
@@ -96,7 +96,7 @@ Some useful commands to navigate the file system include:
 * `ls` or _list_: Display the contents of the current directory in short form.
 * `ll` or _long list_: Display the contents of the current directory in long (detailed) form.
 * `ll -a`: Display _all_ the contents of the current directory in long (detailed) form, including _hidden_ files whose names begin with a period (`.`) character.
-* `cd _<path>_`, or _change directory_: Change the current working of the shell to a different directory as specified by the given absolute or relative path.
+* `cd <path>`, or _change directory_: Change the current working of the shell to a different directory as specified by the given absolute or relative path.
 
 ## File and directory names
 
@@ -106,20 +106,20 @@ Unlike Windows, Linux does not require filenames to have extensions or prevent d
 
 Some useful commands to work with directories include:
 
-* `cp -r _<dir-path>_ _<parent-dir-path>_`, or _recursively copy_: Copy a directory and everything in it to a new directory with the same name in the specified parent directory.
-* `rmdir _<path>_`, or _remove directory_; Remove an empty directory at the given path.
-* `rmdir -rf _<path>_`, or _recursively and forcibly remove directory_; Remove a directory _and everything it contains_, given by the path.
-* `mkdir _<path>_`, or _make directory_: Create a new directory at the given path
+* `cp -r <dir-path> <parent-dir-path>`, or _recursively copy_: Copy a directory and everything in it to a new directory with the same name in the specified parent directory.
+* `rmdir <path>`, or _remove directory_; Remove an empty directory at the given path.
+* `rmdir -rf <path>`, or _recursively and forcibly remove directory_; Remove a directory **and everything it contains**, given by the path. Be very careful using this command!
+* `mkdir <path>`, or _make directory_: Create a new directory at the given path
 
 ## Working with files
 
 Some useful commands to work with files include:
 
-* `cp _<from-path>_ _<to-path>_`: Copy a file and place the new file at a specific location.
-* `touch _<path-to-file>_`: Create a new, empty file at the given path.
-* `cat _<path-to-file>_`, or _concatenate_ a file: Output the contents of the file.
-* `more _<path-to-file>_`: Output the contents of the file one page at a time.
-* `chmod _<mode>_ _<path-to-file>_`: Change the access privilieges for the file or directory, where `_<mode>_` represents the new privileges for user, group, and world. You generally have to use this command to change a file to be executable.
+* `cp <from-path> <to-path>`: Copy a file and place the new file at a specific location.
+* `touch <path-to-file>`: Create a new, empty file at the given path.
+* `cat <path-to-file>`, or _concatenate_ a file: Output the contents of the file.
+* `more <path-to-file>`: Output the contents of the file one page at a time.
+* `chmod <mode> <path-to-file>`: Change the access privilieges for the file or directory, where `<mode>` represents the new privileges for user, group, and world. You generally have to use this command to change a file to be executable.
 
 
 # Updating software
