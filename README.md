@@ -1,6 +1,6 @@
 # fedora-installs
 
-This repository contains utilities and instructions for installing Fedora.
+This repository contains utilities and instructions for installing Fedora. See our [Fedora cheatsheet](https://github.com/frc-4931/fedora-installs/blob/master/CHEATSHEET.md) for tips on using Fedora.
 
 ## Making USB Media for installing Fedora
 
