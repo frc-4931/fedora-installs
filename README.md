@@ -2,18 +2,22 @@
 
 This repository contains utilities and instructions for installing Fedora. See our [Fedora cheatsheet](https://github.com/frc-4931/fedora-installs/blob/master/CHEATSHEET.md) for tips on using Fedora.
 
+Installing an operating system is always a bit different than with other software, because the computer can't be running an operating system on a hard drive that you're going to reformat. Instead, we're going to create a USB thumb drive with the Fedora operating system and installer, and then we'll insert that into the target computer and boot using the operating system on the USB thumb drive. It will then automatically run the program to install Fedora on the target computer and reformat its disk drives. When that's done, we'll turn off the computer, remove the USB drive, and power up the computer, which will then be running the Fedora operating system.
+
+**This process is destructive, and you will lose all data on the drives.** The installer can be used to install Fedora on part of the drives (separate partitions), but that is beyond the scope of these instructions.
+
 ## Making USB Media for installing Fedora
 
-Download the [Fedora Workstation image](https://getfedora.org/en/workstation/) to your local machine, and then follow [these instructions](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-usb-media.html) to create a bootable USB thumb drive with Fedora.
+Download the [Fedora Workstation image](https://getfedora.org/en/workstation/) to your local machine, and then follow [these instructions](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-usb-media.html) to create a bootable USB thumb drive with the Fedora installer. Formatting the USB drive takes roughly 10 minutes, so if you have a lot of machines to image you may want to format several USB drives so you can image multiple computers at once.
 
 ## Install Fedora
 
-Plug the USB media into the machine and (re)boot the machine, pressing and holding F2, F12 or the blue "ThinkVantage" button until the choice is presented to boot from the USB media. (If the machine boots normally, reboot and look when it first starts up for the key that is to be pressed for boot options.)
+Plug the USB media into the machine and (re)boot the machine, pressing and holding F2, F12 or the blue "ThinkVantage" button until the choice is presented to boot from the USB media. (If the machine boots normally, reboot and look when it first starts up for the key that is to be pressed for boot options. If the machine still doesn't find the USB drive, then you can change the boot configuration to look for a USB Hard Disk Drive (HDD) before it looks for the machine's hard drive.)
 
-In the Fedora installer, choose to install Fedora onto the machine's hard drive. Be sure to set the time & date, a unique hostname (e.g., `frc4931dev01`), choose the system destination (optionally reclaiming space by deleting all existing disks), and begin the installation. While the software is being installed:
+When the machine boots with the Fedora installer on the USB drive, it will automatically start up the Fedora installer and will let you configure several options about the new installation. Specifically, you have to say on which hard drives (or partitions) you wish to install Fedora, the time zone of the computer, and specify a unique network hostname (e.g., `frc4931dev01`). Then the installer will begin formatting the drives and installing Fedora. While this happens, the installer will ask for additional information:
 
 1. set the root password; and
-1. create a single "Admin" user, check "Make this user administrator", and set the same password as the root password.
+1. create a single "Admin" user (or another username for the admin account), check "Make this user administrator", and set the same password as the root password.
 
 When installation is complete:
 
