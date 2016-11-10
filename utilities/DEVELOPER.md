@@ -91,7 +91,7 @@ When you want to create a new robot project, open a terminal and run the followi
 
 where `<repoName>` is the name of the repository directory. Then run:
 
-    $ new-project.sh
+    $ new-robot-project.sh
 
 This will prompt you for the name of the new Eclipse project, so type a name without spaces (e.g., "demo2") and press enter. Then, in Eclipse, go to "File -> Import..." and in the dialog type "existing" into the field, select the "Existing Projects into Workspace", and press the "Next" button. In the next page of the wizard, press the "Browse" button, select the "2016-Robot" directory, and press "Ok". In the dialog, check only the box next to your new project name, then press "Finish". You should see your new project in the "Package Explorer".
 
