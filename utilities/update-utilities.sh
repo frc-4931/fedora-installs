@@ -35,3 +35,14 @@ if [[ ! -f "${HOME}/.config/google-chrome/Default/Bookmarks" ]]; then
     cp ~/fedora-installs/chrome/Bookmarks ~/.config/google-chrome/Default/
 fi
 
+#
+# Make a bin directory if needed
+#
+if [[ ! -d "${HOME}/bin" ]]; then
+  mkdir -p ~/bin
+  # add to the path if needed
+  if [[ -z $(grep "\${HOME}/bin" ~/.bashrc) ]]; then
+    echo "PATH=\${HOME}/bin/:\${PATH}" >> ~/.bashrc
+    source ~/.bashrc
+  fi
+fi
