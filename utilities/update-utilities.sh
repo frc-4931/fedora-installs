@@ -49,9 +49,12 @@ if [[ ! -d "${HOME}/bin" ]]; then
 fi
 
 # Download the Strongback CLI
+echo ""
+echo "Installing Strongback CLI ${strongback_cli_version}"
 oldDir=$(pwd)
 cd ~/fedora-installs/utilities
 curl -o https://github.com/strongback/strongback-cli/releases/download/v${strongback_cli_version}/strongback-cli-${strongback_cli_version}-linux.tar.gz | tar xvz
 cd $oldDir
+
 
 
