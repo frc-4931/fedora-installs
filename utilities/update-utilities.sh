@@ -1,5 +1,6 @@
 #!/bin/sh
 
+strongback_cli_version=1.0.0
 #
 # Install the FRC4931 utilities if necessary
 #
@@ -46,3 +47,11 @@ if [[ ! -d "${HOME}/bin" ]]; then
     source ~/.bashrc
   fi
 fi
+
+# Download the Strongback CLI
+oldDir=$(pwd)
+cd ~/fedora-installs/utilities
+curl -o https://github.com/strongback/strongback-cli/releases/download/v${strongback_cli_version}/strongback-cli-${strongback_cli_version}-linux.tar.gz | tar xvz
+cd $oldDir
+
+

@@ -12,6 +12,6 @@ echo "Installing WPILib plugins into Eclipse"
 eclipse -application org.eclipse.equinox.p2.director -repository http://first.wpi.edu/FRC/roborio/release/eclipse/ -installIU edu.wpi.first.wpilib.plugins.java.feature.feature.group
 
 #
-# Install Strongback
+# Install latest Strongback
 #
-./fedora-installs/utilities/install-strongback.sh 1.1.7
+./fedora-installs/utilities/strongback install
