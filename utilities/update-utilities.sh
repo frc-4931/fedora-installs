@@ -1,6 +1,6 @@
 #!/bin/sh
 
-strongback_cli_version=1.0.1
+strongback_cli_version=1.1.0
 
 #
 # Install the FRC4931 utilities if necessary
