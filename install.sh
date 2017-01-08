@@ -73,7 +73,7 @@ dnf -y update
 # Inconsolata open source monospace font, Fritzing (electrical CAD), Arduino programming environment
 #
 echo "Installing Git, OpenJDK 8, Eclipse, Inconsolata, Fritzing, Arduino, and other software"
-dnf -y install git java-1.8.0-openjdk-devel-debug java-1.8.0-openjdk-src-debug eclipse eclipse-jdt eclipse-mpc eclipse-egit eclipse-egit-github levien-inconsolata-fonts fritzing arduino
+dnf -y install git jq java-1.8.0-openjdk-devel-debug java-1.8.0-openjdk-src-debug eclipse eclipse-jdt eclipse-mpc eclipse-egit eclipse-egit-github levien-inconsolata-fonts fritzing arduino
 
 #
 # Define yum repository for Chrome
