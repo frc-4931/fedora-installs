@@ -44,9 +44,13 @@ echo "Uploading SSH public key to GitHub user ${githubUser} ..."
 curl --user "$githubUser" --data "{\"title\":\"frc4931dev\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 
 #
-# See if the 2016-Robot code can be cloned ...
+# See if the 2016-Robot and 2017-Robot codebases can be cloned ...
 #
 if [[ ! -d "${HOME}/dev/2016-Robot" ]]; then
     # Do this silently in case the user does not yet have this cloned
     add-github-repo.sh 2016-Robot > /dev/null 2>&1
+fi
+if [[ ! -d "${HOME}/dev/2017-Robot" ]]; then
+    # Do this silently in case the user does not yet have this cloned
+    add-github-repo.sh 2017-Robot > /dev/null 2>&1
 fi

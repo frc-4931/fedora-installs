@@ -3,7 +3,7 @@
 #
 # Try to install/update the FRC4931 utilities
 #
-./fedora-installs/utilities/update-utilities.sh
+~/fedora-installs/utilities/update-utilities.sh
 
 eclipse_plugin_url="http://first.wpi.edu/FRC/roborio/release/eclipse/"
 
@@ -21,8 +21,13 @@ eclipse -application org.eclipse.equinox.p2.director -repository ${eclipse_plugi
 #
 echo "Installing latest WPILib plugins into Eclipse"
 eclipse -application org.eclipse.equinox.p2.director -repository ${eclipse_plugin_url} -installIU edu.wpi.first.wpilib.plugins.java.feature.feature.group
+if [[ ! -d "${HOME}/wpilib" ]]; then
+    echo ""
+	echo "Open Eclipse and create new robot project to complete installatin of WPILib libraries."
+    echo ""
+fi
 
 #
 # Install latest Strongback
 #
-./fedora-installs/utilities/strongback install
+~/fedora-installs/utilities/strongback install
