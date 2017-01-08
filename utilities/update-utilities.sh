@@ -1,6 +1,13 @@
 #!/bin/sh
 
-strongback_cli_version=1.1.0
+#
+# Install jq package if needed
+#
+if [ ! -f /usr/bin/jq ]; then
+    echo "Installing additional packages"
+    echo ""
+    sudo dnf install -y jq
+fi
 
 #
 # Install the FRC4931 utilities if necessary
@@ -49,15 +56,29 @@ if [[ ! -d "${HOME}/bin" ]]; then
   fi
 fi
 
-# Download the Strongback CLI
-echo ""
-echo "Installing Strongback CLI ${strongback_cli_version}"
-oldDir=$(pwd)
-cd ~/fedora-installs/utilities
-curl -L -o strongback-cli.tar.gz https://github.com/strongback/strongback-cli/releases/download/v${strongback_cli_version}/strongback-cli-${strongback_cli_version}-linux.tar.gz > /dev/null
-tar -xzf strongback-cli.tar.gz
-rm strongback-cli.tar.gz
-cd $oldDir
+#
+# Discover the latest version of Strongback that's available
+#
+strongback_cli_version=$(curl -s https://api.github.com/repos/strongback/strongback-cli/releases/latest | jq -r '.name')
 
+#
+# Download the Strongback CLI version if required
+#
+existing_strongback_version=""
+if [ -f ~/fedora-installs/utilities/strongback ]; then
+  existing_strongback_version=$(strongback version | sed -n -e 's/^.*strongback cli version //p')
+fi
+if [[ "${existing_strongback_version}" != "${strongback_cli_version}" ]]; then
+  echo ""
+  echo "Installing Strongback CLI ${strongback_cli_version}"
+  oldDir=$(pwd)
+  cd ~/fedora-installs/utilities
+  curl -s -L -o strongback-cli.tar.gz https://github.com/strongback/strongback-cli/releases/download/v${strongback_cli_version}/strongback-cli-${strongback_cli_version}-linux.tar.gz > /dev/null
+  tar -xzf strongback-cli.tar.gz
+  rm strongback-cli.tar.gz
+  cd $oldDir
+else
+  echo "Latest available Strongback CLI version ${strongback_cli_version} is already installed"
+fi
 
 
