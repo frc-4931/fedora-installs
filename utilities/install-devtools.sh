@@ -1,7 +1,6 @@
-#
-# Install lastest WPILib
-#
+#!/bin/sh
 
+Wpi_Installer(){
 all_tags=$(curl -s https://api.github.com/repos/wpilibsuite/allwpilib/releases | jq -r '.[].tag_name')
 
 # Create an array of tags
@@ -27,7 +26,6 @@ echo ""
     for (( index = 0; index <= $MaxIndex; ++index ))
     do     
         
-
         x=`expr 20 - ${#tag_array[$index]}`
         tag=$(printf "${tag_array[$index]} %*s" $x)
         x=`expr 2 - ${#index}`
@@ -59,13 +57,73 @@ echo ""
     echo "$dir"
 
     ./temp/wpilib/$dir/WPILibInstaller
+}
 
+PathPlanner_Installer(){
+all_tags=$(curl -s https://api.github.com/repos/mjansen4857/pathplanner/releases | jq -r '.[].tag_name')
+
+# Create an array of tags
+IFS=$'\n' read -r -d '' -a tag_array <<< "$all_tags"
+
+# Output the array elements
+# echo "All tags in list format:"
+# for tag in "${tag_array[@]}"; do
+#     echo "$tag"
+# done
+
+#echo "Number of elements: ${#tag_array[@]}"
+
+declare -i MaxIndex=10
+declare -i versioncount=0
+
+echo ""
+    echo "╔═══════╦═══════════════════════╗"
+    echo "║ Index ║  PathPlanner Version  ║"
+    echo "╠═══════╬═══════════════════════╣"
+    
+    
+    for (( index = 0; index <= $MaxIndex; ++index ))
+    do     
+        
+        x=`expr 20 - ${#tag_array[$index]}`
+        tag=$(printf "${tag_array[$index]} %*s" $x)
+        x=`expr 2 - ${#index}`
+        indexf=$(printf "$index %*s" $x)
+
+        echo "║   $indexf ║ $tag ║"
+
+        versioncount=`expr ${versioncount} + 1`
+        MaxIndex=`expr $MaxIndex + 1`
+
+        if [ ${versioncount} == '5' ]
+        then
+            break
+        fi
+        
+    done
+    echo "╚═══════╩═══════════════════════╝"
+
+    read -p "Index: " selected_tag
+
+    #gh release download <${selected_tag}> -p "PathPlanner-Linux-${selected_tag}.zip"
+
+    zip=PathPlanner-Linux-${tag_array[$selected_tag]}.zip
+
+    gh release download --clobber ${tag_array[$selected_tag]} -p "$zip" -O ./temp/pathplanner/${zip} --repo mjansen4857/pathplanner 
+    
+}
+
+#
+# Install WPILib
+#
+
+Wpi_Installer
 
 #
 # Install PathPlanner
 #
 
-
+PathPlanner_Installer
 
 #
 # Fix Icons
