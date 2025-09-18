@@ -136,13 +136,13 @@ user=$(whoami)
 # Install WPILib
 #
 
-#Wpi_Installer
+Wpi_Installer
 
 #
 # Install PathPlanner
 #
 
-#PathPlanner_Installer
+PathPlanner_Installer
 
 #
 # Add/Fix Icons
