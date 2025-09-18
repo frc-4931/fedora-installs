@@ -110,14 +110,33 @@ echo ""
     zip=PathPlanner-Linux-${tag_array[$selected_tag]}.zip
 
     gh release download --clobber ${tag_array[$selected_tag]} -p "$zip" -O ./temp/pathplanner/${zip} --repo mjansen4857/pathplanner 
-    
+
+    unzip ./temp/pathplanner/${zip} -d ~/PathPlanner
+
+    wget -O ~/PathPlanner/icon.ico https://raw.githubusercontent.com/mjansen4857/pathplanner/refs/heads/main/images/icon.ico
+
+    user=$(whoami)
+
+    echo "#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Categories=Development
+Name=PathPlanner
+Comment=PathPlanner for the FIRST Robotics Competition
+Exec=/home/$user/PathPlanner/pathplanner
+Icon=/home/$user/PathPlanner/icon.ico
+Terminal=false
+StartupNotify=true
+StartupWMClass=pathplanner" > ~/.local/share/applications/pathplanner.desktop
+
 }
 
 #
 # Install WPILib
 #
 
-Wpi_Installer
+#Wpi_Installer
 
 #
 # Install PathPlanner
