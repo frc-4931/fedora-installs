@@ -115,8 +115,6 @@ echo ""
 
     wget -O ~/PathPlanner/icon.ico https://raw.githubusercontent.com/mjansen4857/pathplanner/refs/heads/main/images/icon.ico
 
-    user=$(whoami)
-
     echo "#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
@@ -132,6 +130,8 @@ StartupWMClass=pathplanner" > ~/.local/share/applications/pathplanner.desktop
 
 }
 
+user=$(whoami)
+
 #
 # Install WPILib
 #
@@ -142,11 +142,38 @@ StartupWMClass=pathplanner" > ~/.local/share/applications/pathplanner.desktop
 # Install PathPlanner
 #
 
-PathPlanner_Installer
+#PathPlanner_Installer
 
 #
-# Fix Icons
+# Add/Fix Icons
 #
 
-# https://github.com/Mechanical-Advantage/AdvantageScope/blob/main/icons/app/app-icon.ico
-# https://github.com/mjansen4857/pathplanner/blob/main/images/icon.ico
+wget -O ~/wpilib/icons/AdvantageScope.png https://raw.githubusercontent.com/Mechanical-Advantage/AdvantageScope/refs/heads/main/icons/app/app-icons-linux/icon_128x128.png
+
+echo "#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Categories=Robotics;Science
+Name=AdvantageScope (WPILib) 2025
+Comment=AdvantageScope tool for the 2025 FIRST Robotics Competition season
+Exec=/home/$user/wpilib/2025/tools/AdvantageScope.sh
+Icon=/home/$user/wpilib/icons/AdvantageScope.png
+Terminal=false
+StartupNotify=true
+StartupWMClass=AdvantageScope (WPILib)" > ~/.local/share/applications/AdvantageScope_WPILib_2025.desktop
+
+wget -O ~/wpilib/icons/elastic-dashboard.png https://raw.githubusercontent.com/Gold872/elastic-dashboard/refs/heads/main/assets/logos/logo.png
+
+echo "#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Categories=Robotics;Science
+Name=Elastic (WPILib) 2025
+Comment=Elastic tool for the 2025 FIRST Robotics Competition season
+Exec=/home/$user/wpilib/2025/tools/Elastic.sh
+Icon=/home/$user/wpilib/icons/elastic-dashboard.png
+Terminal=false
+StartupNotify=true
+StartupWMClass=elastic_dashboard" > ~/.local/share/applications/Elastic_WPILib_2025.desktop
