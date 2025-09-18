@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=PixyMon
-Comment=Configure Pixy Camera
-Exec=/usr/bin/PixyMon
-Icon=/usr/local/share/icons/pixymon.png
