@@ -130,27 +130,15 @@ StartupWMClass=pathplanner" > ~/.local/share/applications/pathplanner.desktop
 
 }
 
-user=$(whoami)
 
-#
-# Install WPILib
-#
-
-Wpi_Installer
-
-#
-# Install PathPlanner
-#
-
-PathPlanner_Installer
 
 #
 # Add/Fix Icons
 #
+Fixes(){
+    wget -O ~/wpilib/icons/AdvantageScope.png https://raw.githubusercontent.com/Mechanical-Advantage/AdvantageScope/refs/heads/main/icons/app/app-icons-linux/icon_128x128.png
 
-wget -O ~/wpilib/icons/AdvantageScope.png https://raw.githubusercontent.com/Mechanical-Advantage/AdvantageScope/refs/heads/main/icons/app/app-icons-linux/icon_128x128.png
-
-echo "#!/usr/bin/env xdg-open
+    echo "#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
 Type=Application
@@ -163,9 +151,9 @@ Terminal=false
 StartupNotify=true
 StartupWMClass=AdvantageScope (WPILib)" > ~/.local/share/applications/AdvantageScope_WPILib_2025.desktop
 
-wget -O ~/wpilib/icons/elastic-dashboard.png https://raw.githubusercontent.com/Gold872/elastic-dashboard/refs/heads/main/assets/logos/logo.png
+    wget -O ~/wpilib/icons/elastic-dashboard.png https://raw.githubusercontent.com/Gold872/elastic-dashboard/refs/heads/main/assets/logos/logo.png
 
-echo "#!/usr/bin/env xdg-open
+    echo "#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
 Type=Application
@@ -177,3 +165,49 @@ Icon=/home/$user/wpilib/icons/elastic-dashboard.png
 Terminal=false
 StartupNotify=true
 StartupWMClass=elastic_dashboard" > ~/.local/share/applications/Elastic_WPILib_2025.desktop
+
+}
+
+user=$(whoami)
+Loop=y
+
+while [ $Loop == "y" ]
+do
+    echo ""
+    echo "╔═══════════════════════════════════╗"
+    echo "║          Dev Tools Script         ║"
+    echo "╠═══════════════════════════════════╣"
+    echo "║ 1: Full Install                   ║"
+    echo "║ 2: Install WPILib                 ║"
+    echo "║ 3: Install Pathplanner            ║"
+    echo "║ 4: GitHub Login                   ║"
+    echo "║ x: Exit Script                    ║"
+    echo "╚═══════════════════════════════════╝"
+    read -p "Choice: " InstallChoice
+
+    case "$InstallChoice" in
+        "1") 
+            gh auth login
+            Wpi_Installer
+            Fixes
+            PathPlanner_Installer
+        ;;
+        "2") 
+            Wpi_Installer
+            Fixes
+        ;;
+        "3") 
+            PathPlanner_Installer
+        ;;
+        "4") 
+            gh auth login
+        ;;
+        "x") 
+            echo "Exiting..."
+            break
+        ;;
+        *)
+            echo "$InstallChoice is not a vaild input"
+        ;;
+    esac
+done
