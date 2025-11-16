@@ -1,18 +1,19 @@
 #!/bin/sh
 
 Wpi_Installer(){
+
+Dir=$(ls /home/$user/wpilib)
+
+IFS=',' read -ra Dir <<< "$Dir"0
+
+if [[ "${Dir[0]}" =~ ^[0-9]+$ ]]; then
+  rm -rf ~/wpilib/${Dir[0]}
+fi
+
 all_tags=$(curl -s https://api.github.com/repos/wpilibsuite/allwpilib/releases | jq -r '.[].tag_name')
 
 # Create an array of tags
 IFS=$'\n' read -r -d '' -a tag_array <<< "$all_tags"
-
-# Output the array elements
-# echo "All tags in list format:"
-# for tag in "${tag_array[@]}"; do
-#     echo "$tag"
-# done
-
-#echo "Number of elements: ${#tag_array[@]}"
 
 declare -i MaxIndex=10
 declare -i versioncount=0
@@ -62,6 +63,9 @@ echo ""
 }
 
 PathPlanner_Installer(){
+
+rm -rf ~/pathplanner
+
 all_tags=$(curl -s https://api.github.com/repos/mjansen4857/pathplanner/releases | jq -r '.[].tag_name')
 
 # Create an array of tags
@@ -115,9 +119,9 @@ echo ""
 
     gh release download --clobber ${tag_array[$selected_tag]} -p "$zip" -O ./temp/pathplanner/${zip} --repo mjansen4857/pathplanner 
 
-    unzip ./temp/pathplanner/${zip} -d ~/PathPlanner
+    unzip ./temp/pathplanner/${zip} -d ~/pathplanner
 
-    wget -O ~/PathPlanner/icon.ico https://raw.githubusercontent.com/mjansen4857/pathplanner/refs/heads/main/images/icon.ico
+    wget -O ~/pathplanner/icon.ico https://raw.githubusercontent.com/mjansen4857/pathplanner/refs/heads/main/images/icon.ico
 
     echo "#!/usr/bin/env xdg-open
 [Desktop Entry]
@@ -126,8 +130,8 @@ Type=Application
 Categories=Development
 Name=PathPlanner
 Comment=PathPlanner for the FIRST Robotics Competition
-Exec=/home/$user/PathPlanner/pathplanner
-Icon=/home/$user/PathPlanner/icon.ico
+Exec=/home/$user/pathplanner/pathplanner
+Icon=/home/$user/pathplanner/icon.ico
 Terminal=false
 StartupNotify=true
 StartupWMClass=pathplanner" > ~/.local/share/applications/pathplanner.desktop
