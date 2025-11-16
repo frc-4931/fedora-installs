@@ -43,7 +43,9 @@ echo ""
         
     done
     echo "╚═══════╩═══════════════════════╝"
-
+    
+    echo ""
+    echo "Use "0" unless specified otherwise"
     read -p "Index: " selected_tag
 
     URL=https://packages.wpilib.workers.dev/installer/${tag_array[$selected_tag]}/Linux/WPILib_Linux-${tag_array[$selected_tag]:1}.tar.gz
@@ -103,6 +105,8 @@ echo ""
     done
     echo "╚═══════╩═══════════════════════╝"
 
+    echo ""
+    echo "Use "0" unless specified otherwise"
     read -p "Index: " selected_tag
 
     #gh release download <${selected_tag}> -p "PathPlanner-Linux-${selected_tag}.zip"
@@ -168,8 +172,92 @@ StartupWMClass=elastic_dashboard" > ~/.local/share/applications/Elastic_WPILib_2
 
 }
 
+gitauth(){
+
+    if ! gh auth status >/dev/null 2>&1; then
+        gh auth login
+        gh auth setup-git
+    fi
+
+    fullName=$(git config --get user.name)
+    if [[ -z "$fullName" ]]; then
+        read -p "  Enter your full name : " fullName
+        git config --global user.name "$fullName"
+    fi
+
+    githubUser=$(git config --get github.user)
+    if [[ -z "$githubUser" ]]; then
+        read -p "  Enter your GitHub username : " githubUser
+        git config --global github.user "$githubUser"
+    fi
+
+    emailAddress=$(git config --get user.email)
+    if [[ -z "$emailAddress" ]]; then
+        read -p "  Enter your email address : " emailAddress
+        git config --global user.email "$emailAddress"
+    fi
+
+    echo ""
+    echo "═════════════════ gh auth status ═════════════════"
+    echo ""
+    gh auth status
+    echo ""
+    echo "═════════════════ git config --list ═════════════════"
+    echo ""
+    git config --list
+}
+
+
+check_internet() {
+    # Target a reliable host (Google's DNS) with a single packet and quiet output
+    if ping -c 1 8.8.8.8 > /dev/null 2>&1; then
+        return 0 # Success (online)
+    else
+        return 1 # Failure (offline)
+    fi
+}
+
 user=$(whoami)
 Loop=y
+
+if check_internet; then
+    echo "Internet connection is present."
+    InternetLoop=n
+else
+    echo "No internet connection."
+    InternetLoop=y
+fi
+
+while [ $InternetLoop == "y" ]
+do
+    echo ""
+    echo "╔═══════════════════════════════════╗"
+    echo "║   No internet connection Found    ║"
+    echo "╠═══════════════════════════════════╣"
+    echo "║ 1: Retry Connecting               ║"
+    echo "║ x: Exit Script                    ║"
+    echo "╚═══════════════════════════════════╝"
+    read -p "Choice: " Internet
+
+    case "$Internet" in
+        "1") 
+            if check_internet; then
+                echo "Internet connection is present."
+                InternetLoop=n
+            else
+                echo "No internet connection."
+                InternetLoop=y
+            fi
+        ;;
+        "x") 
+            echo "Exiting..."
+            break
+        ;;
+        *)
+            echo "$Internet is not a vaild input"
+        ;;
+    esac
+done
 
 while [ $Loop == "y" ]
 do
@@ -187,20 +275,22 @@ do
 
     case "$InstallChoice" in
         "1") 
-            gh auth login
+            gitauth
             Wpi_Installer
             Fixes
             PathPlanner_Installer
+            break
         ;;
         "2") 
             Wpi_Installer
             Fixes
         ;;
         "3") 
+            gitauth
             PathPlanner_Installer
         ;;
         "4") 
-            gh auth login
+            gitauth
         ;;
         "x") 
             echo "Exiting..."
