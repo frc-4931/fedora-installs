@@ -178,11 +178,6 @@ StartupWMClass=elastic_dashboard" > ~/.local/share/applications/Elastic_WPILib_2
 
 gitauth(){
 
-    if ! gh auth status >/dev/null 2>&1; then
-        gh auth login
-        gh auth setup-git
-    fi
-
     fullName=$(git config --get user.name)
     if [[ -z "$fullName" ]]; then
         read -p "  Enter your full name : " fullName
@@ -199,6 +194,11 @@ gitauth(){
     if [[ -z "$emailAddress" ]]; then
         read -p "  Enter your email address : " emailAddress
         git config --global user.email "$emailAddress"
+    fi
+
+    if ! gh auth status >/dev/null 2>&1; then
+        gh auth login
+        gh auth setup-git
     fi
 
     echo ""

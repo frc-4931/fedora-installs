@@ -1,5 +1,8 @@
 # Tips on using Fedora 24
 
+> [!WARNING]
+> This is Outdated, Things might not be correct anymore.
+
 [Linux](https://en.wikipedia.org/wiki/Linux) is a free and open source operating system. It is the most widely used OS in data centers and on nearly all of the fastest supercomputers. Linux is the operating system for all Android devices and many embedded systems such as TVs, set top boxes, network routers, and Internet of Things (IoT) devices. It is also used in about [2.5%](https://en.wikipedia.org/wiki/Linux) of desktops.
 
 Fedora is a popular distribution sponsored by [Red Hat](http://redhat.com) (one of FRC4931's [sponsors](http://evilletech.com/spnosors)) and is the upstream for future versions of [Red Hat Enterprise Linux](https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux), a Linux distribution targeted to the commercial market and fully supported by Red Hat.
