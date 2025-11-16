@@ -23,21 +23,21 @@ $ ./fedora-installs/utilities/install-devtools.sh
     This installs required development tools and configures Git
 
 3. If asked, enter:
-
-- Your full name
-- Your GitHub username
-- Your email address
-- You may also need to answer a few questions to authenticate with GitHub.
+    
+    - Your full name
+    - Your GitHub username
+    - Your email address
+    - You may also need to answer a few questions to authenticate with GitHub.
 
 4. The script will begin by installing WPILib.
 
     When asked to choose a version, select the top option (Latest).
 
 5. After downloading, the WPILib installer will open.
-
-- Choose **“Everything”** -> Install for this User
-- Choose **"Download for this computer only"** -> Next
-- When the installer completes, click Finish.
+    
+    - Choose **“Everything”** -> Install for this User
+    - Choose **"Download for this computer only"** -> Next
+    - When the installer completes, click Finish.
 
 6. Next, the script will install PathPlanner.
 
