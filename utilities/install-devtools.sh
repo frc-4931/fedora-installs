@@ -52,10 +52,10 @@ echo ""
     URL=https://packages.wpilib.workers.dev/installer/${tag_array[$selected_tag]}/Linux/WPILib_Linux-${tag_array[$selected_tag]:1}.tar.gz
 
     echo "$URL"
+    rm -rf temp/wpilib*
     wget -O ./temp/wpilib.tar.gz $URL
     mkdir temp/wpilib
     tar -xvzf ./temp/wpilib.tar.gz -C ./temp/wpilib
-
     dir=$(ls temp/wpilib)
     echo "$dir"
 
